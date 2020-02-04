@@ -2,7 +2,7 @@ import socket
 import struct
 import pickle
 import math
-from DeteccionObj_detob import DeteccionObj_detob
+from DeteccionObj_detob import *
 import threading
 import cv2
 import serial  # Importing the serial library to communicate with Arduino
@@ -151,7 +151,7 @@ def recibe_imagen():
         # print(im_count)
         frame = pickle.loads(frame_data, fix_imports=True, encoding="bytes")
         frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
-        x.value, y.value, angulo.value = DeteccionObj_detob(frame, False, coord_x_ref, coord_y_ref)
+        x.value, y.value, angulo.value = DeteccionObj(frame, False, coord_x_ref, coord_y_ref)
         # client_socket.sendall(b'0')
 
         # print(angulo.value)
@@ -192,9 +192,7 @@ sol = 1
 i = 0
 while sol:
     sol = generar_solucion()
-    if i%5 == 0:
-        print("Generando solucion...")
-    i += 1
+    print("Generando solucion...")
 # esta es la parte de la comunicacion Cliente (RPI) servidor (la PC con la camara)
 
 

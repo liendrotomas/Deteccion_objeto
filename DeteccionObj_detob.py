@@ -8,7 +8,7 @@ from Grilla_detob import grilla, limits_x, limits_y
 from mapeo import mapeo
 from Grilla_detob import n, m
 
-def ShowBlue(im_blue):
+def ShowBlue2(im_blue):
     COLORS = ["BLUE"]  # , "YELLOW"], "GREEN"]
 
     hsv = cv2.cvtColor(im_blue, cv2.COLOR_BGR2HSV)
